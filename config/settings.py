@@ -17,11 +17,13 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
 DATABASES = {"default": env.db("DATABASE_URL")}
+DEV_TENANT_DOMAIN = env("DEV_TENANT_DOMAIN", default="makeitexist.net")
 
 # --- Standard Django Settings ---
 INSTALLED_APPS = [
     "apps.users",
     "apps.products",
+    "apps.tenants",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
 INSTALLED_APPS = [app for app in INSTALLED_APPS if app]
 
 MIDDLEWARE = [
+    "config.middleware.RlsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -49,6 +52,11 @@ MIDDLEWARE = [
 ]
 
 MIDDLEWARE = [m for m in MIDDLEWARE if m]
+
+AUTHENTICATION_BACKENDS = [
+    "apps.users.backends.TenantModelBackend",
+    "django.contrib.auth.backends.ModelBackend",
+]
 
 ROOT_URLCONF = "config.urls"
 

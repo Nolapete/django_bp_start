@@ -3,8 +3,15 @@ from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
 
 
-@admin.register(CustomUser)
 class CustomUserAdmin(UserAdmin):
-    # This class inherits from UserAdmin to provide all the default
-    # fields and functionality for the admin interface.
-    pass
+    # Add 'tenant' to the list of fields shown on the user list page
+    list_display = UserAdmin.list_display + ("tenant",)
+
+    # Add 'tenant' to the fields displayed on the user detail/edit page
+    fieldsets = UserAdmin.fieldsets + ((None, {"fields": ("tenant",)}),)
+
+    # Add 'tenant' to the fields displayed when adding a new user
+    add_fieldsets = UserAdmin.add_fieldsets + ((None, {"fields": ("tenant",)}),)
+
+
+admin.site.register(CustomUser, CustomUserAdmin)

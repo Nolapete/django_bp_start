@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Product",
+            name="Tenant",
             fields=[
                 (
                     "id",
@@ -22,8 +22,12 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("name", models.CharField(max_length=255)),
-                ("price", models.DecimalField(decimal_places=2, max_digits=10)),
+                ("name", models.CharField(max_length=255, unique=True)),
+                ("domain", models.CharField(max_length=255, null=True, unique=True)),
             ],
+            options={
+                "verbose_name": "Tenant",
+                "verbose_name_plural": "Tenants",
+            },
         ),
     ]

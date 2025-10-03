@@ -21,13 +21,22 @@ class CustomUserViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """
-        Overrides the create method to apply throttling for registration.
+        Handles user registration with per-tenant separation.
         """
         self.throttle_classes = [SensitiveEndpointAnonRateThrottle]
-        return super().create(request, *args, **kwargs)
+
+        # Pass the tenant from the request context to the serializer
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+
+        headers = self.get_success_headers(serializer.data)
+        return Response(
+            serializer.data, status=status.HTTP_201_CREATED, headers=headers
+        )
 
     def perform_create(self, serializer):
-        user = serializer.save()
-        user.set_password(serializer.validated_data["password"])
-        user.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        """
+        Performs the create operation, setting the tenant for the new user.
+        """
+        serializer.save(tenant=self.request.tenant)
