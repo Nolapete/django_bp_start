@@ -7,6 +7,9 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
+import sys
+
 import environ
 from pathlib import Path
 
@@ -21,10 +24,8 @@ environ.Env.read_env(str(BASE_DIR / ".env"))
 # Core Django settings read from environment variables
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
-DATABASES = {
-    "default": env.db("DATABASE_URL")
-}
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=[])
+DATABASES = {"default": env.db("DATABASE_URL")}
 
 # --- Standard Django Settings ---
 INSTALLED_APPS = [
@@ -102,8 +103,11 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = "static/"
-if not DEBUG:
-    STATIC_ROOT = BASE_DIR / "static_root"
+
+if DEBUG:
+    STATIC_ROOT = BASE_DIR / "static_root_test"
+else:
+    STATIC_ROOT = BASE_DIR / "static_root_prod"
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -111,6 +115,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # REST Framework settings
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
     ],
 }

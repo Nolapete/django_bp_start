@@ -1,4 +1,5 @@
 from django.db import models
+from apps.users.models import CustomUser
 
 class Product(models.Model):
     name = models.CharField(max_length=255)
@@ -8,3 +9,6 @@ class Product(models.Model):
         on_delete=models.CASCADE,
         related_name="products",
     )
+
+    def __str__(self):
+        return self.name
