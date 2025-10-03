@@ -2,6 +2,7 @@ from django.test import TestCase
 from apps.products.models import Product
 from apps.users.models import CustomUser
 
+
 class ProductModelTest(TestCase):
     def setUp(self):
         self.user = CustomUser.objects.create_user(username="creator")

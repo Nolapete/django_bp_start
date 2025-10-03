@@ -7,8 +7,8 @@ if settings.DEBUG:
     import debug_toolbar
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path("admin/", admin.site.urls),
+    path("api/", include(router.urls)),
 ]
 
 if settings.DEBUG:

@@ -1,6 +1,7 @@
 from django.test import TestCase
 from apps.users.models import CustomUser
 
+
 class CustomUserTests(TestCase):
     def test_create_user(self):
         """Tests if a user can be created."""

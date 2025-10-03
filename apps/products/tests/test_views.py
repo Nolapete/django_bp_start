@@ -3,9 +3,12 @@ from rest_framework import status
 from apps.products.models import Product
 from apps.users.models import CustomUser
 
+
 class ProductViewTest(APITestCase):
     def setUp(self):
-        self.user = CustomUser.objects.create_user(username="testuser", password="password123")
+        self.user = CustomUser.objects.create_user(
+            username="testuser", password="password123"
+        )
         self.product = Product.objects.create(
             name="Initial Product", price=10.00, created_by=self.user
         )

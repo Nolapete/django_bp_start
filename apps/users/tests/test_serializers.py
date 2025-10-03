@@ -2,6 +2,7 @@ from rest_framework.test import APITestCase
 from apps.users.serializers import CustomUserSerializer
 from apps.users.models import CustomUser
 
+
 class CustomUserSerializerTests(APITestCase):
     def test_serializer_with_valid_data(self):
         """Tests the serializer with valid data."""

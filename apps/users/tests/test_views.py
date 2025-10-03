@@ -2,6 +2,7 @@ from rest_framework.test import APITestCase
 from rest_framework import status
 from apps.users.models import CustomUser
 
+
 class CustomUserViewSetTests(APITestCase):
     def setUp(self):
         self.user_data = {"username": "testuser", "password": "password123"}

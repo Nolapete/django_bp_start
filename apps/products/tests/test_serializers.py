@@ -6,19 +6,16 @@ from apps.users.models import CustomUser
 
 class ProductSerializerTests(APITestCase):
     def setUp(self):
-        self.user = CustomUser.objects.create_user(username="testuser", password="password123")
+        self.user = CustomUser.objects.create_user(
+            username="testuser", password="password123"
+        )
         self.product = Product.objects.create(
-            name="Test Product",
-            price=19.99,
-            created_by=self.user
+            name="Test Product", price=19.99, created_by=self.user
         )
 
     def test_serializer_with_valid_data(self):
         """Tests the serializer with valid data."""
-        data = {
-            "name": "New Product",
-            "price": 25.50
-        }
+        data = {"name": "New Product", "price": 25.50}
         # A ModelSerializer will automatically handle the read_only `created_by` field.
         serializer = ProductSerializer(data=data)
         self.assertTrue(serializer.is_valid())
@@ -30,9 +27,7 @@ class ProductSerializerTests(APITestCase):
     def test_serializer_with_invalid_data(self):
         """Tests the serializer with invalid data."""
         # Missing required 'name' field
-        data = {
-            "price": 10.00
-        }
+        data = {"price": 10.00}
         serializer = ProductSerializer(data=data)
         self.assertFalse(serializer.is_valid())
         self.assertIn("name", serializer.errors)
@@ -49,10 +44,7 @@ class ProductSerializerTests(APITestCase):
     def test_serializer_create(self):
         """Tests if the serializer can create a new Product instance."""
         # Because 'created_by' is read_only, it should not be provided in the data.
-        data = {
-            "name": "Another Product",
-            "price": 30.00
-        }
+        data = {"name": "Another Product", "price": 30.00}
         serializer = ProductSerializer(data=data)
         self.assertTrue(serializer.is_valid())
 
