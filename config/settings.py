@@ -1,15 +1,6 @@
 """
 Django settings for the project.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/5.0/topics/settings/
-
-For the full list of settings and their values, see
-https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
-import os
-import sys
 
 import environ
 from pathlib import Path
@@ -18,7 +9,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Read .env file located at the project root.
-# The `env` object will read system environment variables first, then fall back to the .env file.
 env = environ.Env()
 environ.Env.read_env(str(BASE_DIR / ".env"))
 
@@ -31,6 +21,7 @@ DATABASES = {"default": env.db("DATABASE_URL")}
 # --- Standard Django Settings ---
 INSTALLED_APPS = [
     "apps.users",
+    "apps.products",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,8 +29,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "apps.products",
+    # Add Debug Toolbar for local development only if DEBUG is True
+    "debug_toolbar" if DEBUG else "",
 ]
+
+# Filtering out the empty string for the debug_toolbar
+INSTALLED_APPS = [app for app in INSTALLED_APPS if app]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -49,13 +44,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Add Debug Toolbar middleware for local development
+    "debug_toolbar.middleware.DebugToolbarMiddleware" if DEBUG else "",
 ]
 
-# Add Debug Toolbar for local development only if DEBUG is True
-if DEBUG:
-    INSTALLED_APPS += ["debug_toolbar"]
-    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
-    INTERNAL_IPS = ["127.0.0.1"]
+MIDDLEWARE = [m for m in MIDDLEWARE if m]
 
 ROOT_URLCONF = "config.urls"
 
@@ -76,9 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "config.wsgi.application"
-
-# Custom user model
-AUTH_USER_MODEL = "users.CustomUser"
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -102,18 +92,90 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 USE_TZ = True
 
-# Static files
-STATIC_URL = "static/"
-
-if DEBUG:
-    STATIC_ROOT = BASE_DIR / "static_root_test"
-else:
-    STATIC_ROOT = BASE_DIR / "static_root_prod"
+# Static and media files
+STATIC_URL = "/static/"
+MEDIA_URL = "/media/"
+STATIC_ROOT = env.path("STATIC_ROOT", default=BASE_DIR / "static_root")
+MEDIA_ROOT = env.path("MEDIA_ROOT", default=BASE_DIR / "media")
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# REST Framework settings
+# Custom user model
+AUTH_USER_MODEL = "users.CustomUser"
+
+# --- Security and Session Settings ---
+# Secure cookies
+# These ensure cookies are only sent over HTTPS connections.
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_COOKIE_SECURE = not DEBUG
+
+# Prevent client-side JavaScript access to cookies.
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = not DEBUG  # Set to False in local dev if needed for AJAX
+
+# Other security headers
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+SECURE_SSL_REDIRECT = not DEBUG
+
+# --- Logging Configuration ---
+# Use standard structured logging for better monitoring
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": BASE_DIR / "django.log",
+            "maxBytes": 1024 * 1024 * 5,  # 5 MB
+            "backupCount": 5,
+            "formatter": "verbose",
+        },
+    },
+    "root": {
+        "handlers": ["console", "file"],
+        "level": "INFO",
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": False,
+        },
+        "django.request": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": False,
+        },
+    },
+}
+
+# --- REST Framework Settings ---
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+    # Add throttling rates
+    "DEFAULT_THROTTLE_CLASSES": [
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+    ],
+    "DEFAULT_THROTTLE_RATES": {
+        "anon": "100/hour",
+        "user": "1000/day",
+    },
 }
