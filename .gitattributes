@@ -1,0 +1,15 @@
+# Set default behavior to normalize line endings
+* text=auto
+
+# Explicitly mark known text files
+*.py text
+*.html text
+*.css text
+*.js text
+
+# Mark binary files
+*.png binary
+*.jpg binary
+*.svg binary
+*.gif binary
+*.zip binary
