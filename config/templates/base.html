@@ -1,0 +1,22 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Multi-Tenant App</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links will go here -->
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Content from child templates will go here -->
+        {% endblock content %}
+    </main>
+</body>
+</html>

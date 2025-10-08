@@ -1,0 +1,28 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+{% load socialaccount %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.email }}!</h1>
+        <p>You are logged in.</p>
+        <a href="{% url 'account_logout' %}">Log Out</a>
+    {% else %}
+        <h1>Welcome to our Multi-Tenant Application</h1>
+        <p>Please log in or sign up to continue.</p>
+
+        <!-- Login Form -->
+        <form method="post" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form.as_p }} <!-- We'll need to pass the form from the view -->
+            <button type="submit">Log In</button>
+        </form>
+
+        <p>
+            <a href="{% url 'account_signup' %}">Sign Up</a>
+        </p>
+        <p>
+            <a href="{% provider_login_url 'google' %}">Login with Google</a>
+        </p>
+    {% endif %}
+{% endblock content %}

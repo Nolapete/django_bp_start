@@ -24,6 +24,15 @@ INSTALLED_APPS = [
     "apps.users",
     "apps.products",
     "apps.tenants",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.google",
+    "allauth.socialaccount.providers.twitter",
+    "allauth.socialaccount.providers.facebook",
+    "allauth.socialaccount.providers.linkedin_oauth2",
+    "allauth.socialaccount.providers.github",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -35,11 +44,14 @@ INSTALLED_APPS = [
     "debug_toolbar" if DEBUG else "",
 ]
 
+SITE_ID = 1
+
 # Filtering out the empty string for the debug_toolbar
 INSTALLED_APPS = [app for app in INSTALLED_APPS if app]
 
 MIDDLEWARE = [
     "config.middleware.RlsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -55,18 +67,29 @@ MIDDLEWARE = [m for m in MIDDLEWARE if m]
 
 AUTHENTICATION_BACKENDS = [
     "apps.users.backends.TenantModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
+
+# Allauth configuration (you can customize these)
+ACCOUNT_LOGIN_METHODS = {"email"}
+ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
+
+LOGIN_REDIRECT_URL = "/"  # Redirect to the home page after login
+LOGOUT_REDIRECT_URL = "/"  # Redirect to the home page after logout
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 ROOT_URLCONF = "config.urls"
 
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
+                "allauth.context_processors.auth",
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",

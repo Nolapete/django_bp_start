@@ -2662,3 +2662,457 @@ INFO 2025-10-03 12:29:57,985 basehttp 63420 140711106176704 "GET /static/rest_fr
 INFO 2025-10-03 12:29:58,031 basehttp 63420 140711106176704 "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
 WARNING 2025-10-03 12:29:58,110 log 63420 140711106176704 Not Found: /favicon.ico
 WARNING 2025-10-03 12:29:58,110 basehttp 63420 140711106176704 "GET /favicon.ico HTTP/1.1" 404 2508
+ERROR 2025-10-03 19:31:46,599 log 78063 139740752946624 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:31:46,748 log 78063 139740752946624 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:33:18,117 log 78159 140194716886464 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:33:18,266 log 78159 140194716886464 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:36:33,403 log 78315 139791057212864 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:36:33,550 log 78315 139791057212864 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:40:44,674 log 78495 140314321413568 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:40:44,821 log 78495 140314321413568 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:42:27,805 log 78576 139913362240960 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:42:27,953 log 78576 139913362240960 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:42:53,725 log 78622 140194295088576 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:42:53,875 log 78622 140194295088576 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:45:00,813 log 78738 140503781868992 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:45:00,963 log 78738 140503781868992 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:46:10,528 log 78803 140598097462720 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:46:10,684 log 78803 140598097462720 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:46:59,933 log 78877 140210122778048 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:47:00,081 log 78877 140210122778048 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:47:52,583 log 78933 140315980162496 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+ERROR 2025-10-03 19:47:52,734 log 78933 140315980162496 Internal Server Error: /api/users/
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 37, in __call__
+    request.tenant = Tenant.objects.get(domain=hostname)
+                     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/db/models/query.py", line 633, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+apps.tenants.models.Tenant.DoesNotExist: Tenant matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pete/DjangoDev/django_bp_start/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/pete/DjangoDev/django_bp_start/config/middleware.py", line 39, in __call__
+    raise NotFound(detail="Tenant not found for this domain.")
+rest_framework.exceptions.NotFound: Tenant not found for this domain.
+INFO 2025-10-03 19:49:42,683 autoreload 79016 139648014136768 Watching for file changes with StatReloader
+INFO 2025-10-03 19:52:12,171 autoreload 79016 139648014136768 /home/pete/DjangoDev/django_bp_start/config/settings.py changed, reloading.
+INFO 2025-10-03 19:52:12,568 autoreload 79186 139644229072320 Watching for file changes with StatReloader
+INFO 2025-10-03 19:52:25,487 autoreload 79217 139885091472832 Watching for file changes with StatReloader
+INFO 2025-10-03 19:53:23,518 autoreload 79217 139885091472832 /home/pete/DjangoDev/django_bp_start/config/settings.py changed, reloading.
+INFO 2025-10-03 19:53:23,918 autoreload 79247 140379597436352 Watching for file changes with StatReloader
+INFO 2025-10-03 19:53:32,096 autoreload 79283 139877031499200 Watching for file changes with StatReloader
+INFO 2025-10-03 19:55:15,786 autoreload 79283 139877031499200 /home/pete/DjangoDev/django_bp_start/config/settings.py changed, reloading.
+INFO 2025-10-03 19:55:16,182 autoreload 79387 140610371913152 Watching for file changes with StatReloader
+INFO 2025-10-03 19:55:40,298 autoreload 79458 140258387912128 Watching for file changes with StatReloader
+INFO 2025-10-03 19:57:45,398 autoreload 79458 140258387912128 /home/pete/DjangoDev/django_bp_start/config/settings.py changed, reloading.
+INFO 2025-10-03 19:57:45,831 autoreload 79723 140546744677824 Watching for file changes with StatReloader
+INFO 2025-10-03 19:58:07,345 autoreload 79723 140546744677824 /home/pete/DjangoDev/django_bp_start/config/settings.py changed, reloading.
+INFO 2025-10-03 19:58:07,763 autoreload 79748 140090703902144 Watching for file changes with StatReloader
